@@ -8,7 +8,7 @@ test cases will follow. For each test case, there will be two lines. The first l
 integer K. The next line will contain a list of space-separated integers.
 
 Output description: Your goal is to count the number of numbers in the list and subtract K from that count,
-then output that to standard out.
+then output that to standard out. Note that there is NOT a space after the last number.
 
 Sample input:
 4
