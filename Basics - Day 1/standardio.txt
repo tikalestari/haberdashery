@@ -58,3 +58,11 @@ Want to print but not to a new line?
 -----------------------------------
 print(<something>) will automatically add a new line character at the end. To avoid this,
 use print(<something>, end="").
+
+
+RUNNING YOUR CODE:
+-----------------
+python3 <your file>.py < basics_in.txt > my_out.txt
+diff my_out.txt basics_out.txt
+
+If the diff command doesn't print anything, your solution is correct.
