@@ -1,0 +1,27 @@
+Problem: Given an integer K and some list of integers, return the number of integers in the list
+minus K.
+
+Goal: To get your feet wet with standard input/output.
+
+Input description: The first line will contain an integer T, which will be the number of test cases. T
+test cases will follow. For each test case, there will be two lines. The first line will contain a single
+integer K. The next line will contain a list of space-separated integers.
+
+Output description: Your goal is to count the number of numbers in the list and subtract K from that count,
+then output that to standard out.
+
+Sample input:
+4
+1
+1 2 3 4 5
+2
+1 2 3 4 5
+3
+1 2 3 4 5
+4
+1 2 3 4 5
+
+Sample output:
+4 3 2 1
+
+Explanation: In the first test case, there are 5 integers and K = 1, thus 5-1 = 4 so we output 4.

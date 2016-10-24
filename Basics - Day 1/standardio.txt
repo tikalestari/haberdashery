@@ -1,0 +1,60 @@
+Standard input/output tutorial
+------------------------------
+"Standard input" is like getting input from the console/terminal. In java,
+you'd use "System.in". "Standard output" is like printing, in Java you'd
+use "System.out.print()". The way we're going to do problems here will rely
+on standard input/output.
+
+In python, you can get standard input using "input()", which will retrieve
+the next line of input, similar to "Scanner.nextLine()". For standard output
+in Python, we will use "print(<something>)", which will print to standard out.
+
+Example input
+-------------
+1
+Fat cats are great
+42
+
+Example code to get the input
+-----------------------------------------
+one = input() # '1'
+fat_cats = input() # 'Fat cats are great'
+forty_two = input() # '42'
+
+
+Note that you can iterate through all lines in standard input, in case you didn't
+know how many lines there would be.
+
+Example code for iterating through all lines of standard input
+--------------------------------------------------------------
+for line in sys.stdin:
+  print(line) # prints each line in the input
+
+
+Now you may ask, what if I want to access each element individually in a line of input?
+
+Example input
+-------------
+1 2 3
+Fat cats are great
+
+Example code to get input individually
+--------------------------------------
+# you could've also stored this in a single variable and it would be a list of strings instead.
+a, b, c = input().split() # a = "1", b = "2", c = "3",
+
+words = input().split() # ['Fat', 'cats', 'are', 'great']
+
+Using .split(), we can split the string by a delimiter (spaces by default).
+
+
+
+What if you don't want the input as strings? What if they are supposed to be integers?
+Have no fear, casting is here. To cast to an int, simply wrap the variable with int(). To cast
+to a string, wrap the variable with str(). I'd recommend googling these whenever you need to know
+them if you don't remember.
+
+Want to print but not to a new line?
+-----------------------------------
+print(<something>) will automatically add a new line character at the end. To avoid this,
+use print(<something>, end="").
