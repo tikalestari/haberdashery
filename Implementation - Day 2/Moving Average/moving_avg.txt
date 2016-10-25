@@ -1,0 +1,61 @@
+Here we are going to test some implementation problems. Implementation problems are generally
+problems that involve more coding than algorithmic thinking.
+
+Problem description: You're given a list of stock prices for given days 1 through N. Your boss
+wants you to compute the moving average from day 1 to day I, where day I represents every value
+in the range 1 through N. Note that the moving average is just the sum of the elements up to a certain point,
+divided by the number of elements included. At each new index, you include another element in your sum and divide by the
+new count.
+
+Input description: The first line in the input will be an integer T, the number of test cases. T test
+cases will follow. For each test case, you will be given a list of integers of size N (unspecified), where
+N is the number of days that you have stock prices for.
+
+Output description: For each test case, output the moving average from day 1 to each day up to and including
+day N. See the example input/output for clarification.
+
+Tips for the problem:
+--------------------
+You're already familiar with input().split(). But what if you want all of these values to
+be integers? You can use the map() function. map() takes in a function name as the first argument, and an iterable as
+the second argument, and will return a map object, which is iterable, meaning you can cast it to a list. For example,
+let's say my input was this list:
+1 2 3 4 5
+
+input().split() will give me ["1","2","3","4","5"], but I want [1,2,3,4,5]
+What I can do is use map like this:
+l = list(map(int, input().split())) # [1,2,3,4,5]
+Here we pass "int" as the function name because "int" is callable, aka int() # casting. map() works by
+calling this function on EVERY element in the iterable, aka input().split() (a list of strings), and returning an iterable
+map object, which we then cast to a list. You'll need this for this problem.
+
+Example input:
+3
+1 2 3 4 5
+2 4 6 8 10
+5 3 2 1 4
+
+Example output:
+Test 1:
+Day 1: 1
+Day 2: 1
+Day 3: 2
+Day 4: 2
+Day 5: 3
+Test 2:
+Day 1: 2
+Day 2: 3
+Day 3: 4
+Day 4: 5
+Day 5: 6
+Test 3:
+Day 1: 5
+Day 2: 4
+Day 3: 3
+Day 4: 2
+Day 5: 3
+
+Explanation: For each test case, we first print out "Test x:" where x is the test number, starting at 1. For each test,
+we print the moving average from day 1 to day I, for all days that we have stocks for. For example, at day 3 for test 1,
+the moving average is 2.0 because (1 + 2 + 3) / 3 == 2.0. Note that in python, the "/" operator will give you "true" division,
+aka floating point division. "//" will give you integer division. Here you want to use the "//" operator.

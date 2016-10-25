@@ -1,0 +1,42 @@
+Problem description: Congratulations! You are now Donald Trump's tax advisor. Donald Trump will give you
+a list of integers representing the amount of money he made each month, and he wants to know if he needs to
+file his taxes this year. In order to determine if he should file his taxes this year, he has given you a range
+of integers. If the amount of money he made that year is inside of this range, that is, beginning of range <=
+amount of money he made <= end of range, then he has to file his taxes. Otherwise, he doesn't.
+
+Input description: The first line of input will be a single integer T, the number of test cases. T test cases
+will follow. For each test case, you will be given 2 lines. The first line will contain two integers, the beginning
+of a range and the end of a range. The second line will contain 12 space separate integers, where each integer
+represents Donald Trump's revenue for that month.
+
+Output description: For each test case, print "YES" if Donald Trump must file taxes and "NO" if he doesn't have to.
+
+Tips:
+For this problem, you will need to store the integers that specify the range as integers, not strings. So far, you're
+only familiar with this way to do it:
+a, b = input().split()
+however, this will give you strings, and you want integers. To solve this issue, you can use map(function,iterable) to
+cast both values to ints before you store them. map() takes in something that is callable in the left argument, and something
+that is iterable in the right argument. For this problem, you will want to do the following:
+a, b = map(int, input().split())
+Here we take "int", and call it on every item in the iterable "input().split()", and create an iterable map object out of that.
+Then, using the "a, b =" notation, we store the values in those variables. Let me know if you have questions.
+
+Example Input:
+3
+1 5
+1 0 0 0 0 0 0 1 1 1 1 0 0
+2 4
+1 1 1 1 1 1 1 1 1 1 1 1 1
+-5 9
+-4 -2 -1 0 0 0 0 0 0 0 0 0
+
+Example output:
+YES
+NO
+NO
+
+Explanation:
+For the first test case, the sum of his revenue for all 12 months is 5, which fits in the range (1,5) because
+5 >= 1 and 5 <= 5. For the next test case, the sum is 12, but his range is (2,4), thus we print "NO". For the last
+test case, we print "NO" because the sum is less than our begin value for our range.
