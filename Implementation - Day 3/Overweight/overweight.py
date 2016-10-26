@@ -3,12 +3,15 @@ def overweight():
     for i in range(0,t):
         count = 0
         a,b,c = map(int, input().split())
-        new_list = [0 for i in range(a)]
+        cats = {}
         for i in range(0,b):
             d,e = map(int, input().split())
-            new_list[d] += e
-        for j in new_list:
-            if int(j) >= c:
+            if d not in cats:
+                cats[d] = e
+            else:
+                cats[d] += e
+        for cat, weight in cats.items():
+            if weight >= c:
                 count += 1
         print(count)
 
