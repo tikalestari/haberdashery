@@ -3,10 +3,10 @@ def trump():
     for i in range(0,t):
         a, b = map(int, input().split())
         rev = map(int, input().split())
-        sum = 0
+        s = 0
         for i in rev:
-            sum += i
-        if int(sum) >= a and int(sum) <= b:
+            s += i
+        if a <= s <= b:
             print ("YES")
         else:
             print ("NO")
