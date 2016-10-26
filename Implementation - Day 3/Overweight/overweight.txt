@@ -1,0 +1,38 @@
+Here we are going to test a slightly more difficult implementation problem. You're going to have to keep track
+of some things, but there are multiple ways to do so. One is using a list of size N, which you can initialize to all 0s
+with list comprehension like this:
+new_list = [0 for i in range(N)] # creates a list of size N with all 0s
+or you can use a dictionary (a map) to keep track of things. Either works.
+
+Problem description: You are now the proud owner of N cats. Each of these cats loves to eat, however, you want
+to keep track of the ones that become overweight. Each cat has a feeding session, which means it eats some amount of cat food
+and gains that amount of weight. Given the number of cats, the amount of food they eat at a particular
+instance in time and the amount of weight that is considered overweight, print the number of overweight cats. The cats are labeled
+from 0 to N-1 (i.e if there are 3 cats, then the cat labels are 0, 1 and 2).
+
+Input description: The first line of input will be an integer T, the number of test cases. T test cases will follow. The first
+line of every test case will contain a three integers. The first integer is the number of cats, N, the second integer is the number
+of feeding sessions (i.e. number of lines left in the input for that test case), F and the third integer is the "overweight" measure (i.e.
+if a cat's weight is greater than or equal to this integer, it is overweight). F feeding sessions will follow. For each feeding session line,
+there will be two integers. The first integer is the cat's label, the second integer is the amount of food it eats at that particular
+time.
+
+Output description: For each test case, print the number of overweight cats.
+
+Example input:
+1
+3 5 7
+0 5
+1 2
+0 2
+1 1
+2 9
+
+Example output:
+2
+
+Explanation: First we start off with a weight of 0 for all 3 cats (labels are 0 1 and 2). We know the overweight limit is 7 and there
+will be 5 feeding sessions. The first feeding session, cat 0 eats 5 pounds, thus cat 0 weighs 5 pounds now. The next session, cat 1
+eats 2 pounds, thus cat 1 weighs 2 pounds now. The next session, cat 0 eats 2 more pounds, thus cat 0 now weighs 7 pounds. Then cat 1
+eats 1 more pound, and cat 2 eats 9 pounds. If we look at the weights, cat 0 weighs 7 pounds, cat 1 weighs 2 pounds
+and cat 2 weighs 9 pounds. Since 7 and 9 are both greater than or equal to 7, there are two overweight cats.
