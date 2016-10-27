@@ -1,0 +1,36 @@
+Here we are going to do another implementation problem, this time using dictionaries. Remember that
+a dictionary is basically a hashmap. You assign a key a value, and you can update values for keys later on.
+
+Problem description: The election is coming up and you want to detect for people who are voting more than once.
+The way you figure out if someone has voted more than once is by checking to see if someone else has the
+exact same name, except the characters are jumbled up. Example:
+donald and nldaod. If either name has more or less characters, there can't be a match.
+
+Another thing to note is that you may use the "==" operator on dictionaries. If two dictionaries contain the
+same keys with the same values, then "==" will return true for those two dictionaries.
+
+Input description: The first line of input will be an integer T, the number of test cases. T test cases
+will follow. The first line of every test case will be an integer N, the number of checks you want to do
+for duplicate voting. For each check, you will be given two names, separated by a space.
+
+Output description: For each check in each test case, print whether or not there was a match. If there was
+a match, print "YES", if not, print "NO".
+
+YOU MAY NOT USE ANY KIND OF SORT.
+
+Example input:
+2
+3
+cat tac
+cat3 cat
+gbas sbag
+2
+29safa safa209
+a a
+
+Example output:
+YES
+NO
+YES
+NO
+YES

@@ -1,0 +1,52 @@
+Here we are going to test you further on dictionaries. Note that you may use more than one.
+
+Remember that to iterate through a map, you can either iterate only through the keys like this:
+for key in map:
+  # stuff
+
+Or you can iterate through the key value pairs like this:
+for key, value in map.items():
+  # stuff
+
+Problem description: You have been tasked with drawing the next lottery winner! Unfortunately,
+not all lottery participants are valid participants. This is a special kind of lottery, where you can
+only purchase one ticket. You will be given the first and last names of all participants, and the last names
+on every ticket sold. You may assume all last names are unique (i.e. no duplicates). Your job is to print
+the first and last names of every valid lottery participant.
+
+Input description: The first line of input will be T, the number of test cases. The first line of each test
+case will contain two integers, a and b, where a is the number of people who bought a ticket and b is the
+number of tickets bought. The next b lines will each contain a single string, the last name of the person who
+bought the ticket.
+
+Output description: For each test case, print the first and last names of each valid lottery participant. A valid
+lottery participant is a participant who only bought 1 ticket. If there are no valid lottery participants, print "NONE".
+
+Example input:
+3
+3 4
+Tika Lestari
+Derek Tolliver
+Fat Whale
+Lestari
+Tolliver
+Lestari
+Whale
+2 5
+a b
+c d
+b
+b
+b
+b
+d
+1 2
+a b
+b
+b
+
+Example output:
+Derek Tolliver
+Fat Whale
+c d
+NONE
