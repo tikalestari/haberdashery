@@ -1,0 +1,66 @@
+Here we are going to test maps/dictionaries even further by implementing a search engine.
+
+Problem description: You will be given a series of websites and strings, where the strings
+represent the information/content on the website. Then you will be given a series of search queries.
+For each query, print every website that has the query information sorted in descending order by frequency
+of that query on each website.If a query appears more than any other site, it will be the first result,
+and so on. You may assume each query is a single word.
+
+Input description: The first line of input will contain a single integer T, the number of test cases.
+The first line of each test case will have two space separated integers, N and M, where N represents
+the number of websites and M represents the number of queries. The next 2*N lines will first contain
+the website name (on the first line), and then the string with the website information (on the second line).
+After 2*N lines will be M more lines, where each of the M lines will contain a single string, which is
+your query.
+
+Output description: For each query, print out the websites that contain that query, sorted by frequency count.
+If no websites contain that query, print -1.
+
+To sort a dictionary by the VALUES in descending order (highest value first):
+list_of_keys = sorted(my_map, key=my_map.get, reverse=True)
+
+hint: nested maps
+
+Example input:
+2
+5 3
+google.com
+a b c d e f a b c d e f
+tika.com
+a a a b c d e f
+whale.com
+a a b b c c d d e e f f
+cameron.com
+b c d e f g
+chicken.com
+a a a a b
+a
+f
+b
+2 1
+google.com
+a b
+facebook.com
+c d
+f
+
+Example Output:
+1. chicken.com
+2. tika.com
+3. whale.com
+4. google.com
+1. whale.com
+2. google.com
+3. tika.com
+4. cameron.com
+1. whale.com
+2. google.com
+3. tika.com
+4. cameron.com
+5. chicken.com
+NONE
+
+Explanation:
+For the first test case, our first query is for "a". We print "chicken.com" because it has the most occurrences of "a" (4). We
+print "tika.com" next because it has the second most occurrences of "a" (3), and so on. In the second test case, we print "NONE"
+because none of the websites have the string "f".

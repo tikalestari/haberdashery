@@ -1,0 +1,29 @@
+3
+5 3
+google.com
+a b c d e f a b c d e f
+tika.com
+a a a b c d e f
+whale.com
+a a b b c c d d e e f f
+cameron.com
+b c d e f g
+chicken.com
+a a a a b
+a
+f
+b
+2 1
+google.com
+a b
+facebook.com
+c d
+f
+3 1
+google.com
+a b c d
+cameron.com
+a b a b a b
+tika.com
+c c c c c c
+c

@@ -1,0 +1,16 @@
+1. chicken.com
+2. tika.com
+3. whale.com
+4. google.com
+1. whale.com
+2. google.com
+3. cameron.com
+4. tika.com
+1. whale.com
+2. google.com
+3. cameron.com
+4. tika.com
+5. chicken.com
+NONE
+1. tika.com
+2. google.com
