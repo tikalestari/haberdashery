@@ -14,7 +14,7 @@ After 2*N lines will be M more lines, where each of the M lines will contain a s
 your query.
 
 Output description: For each query, print out the websites that contain that query, sorted by frequency count.
-If no websites contain that query, print -1.
+If no websites contain that query, print "NONE".
 
 To sort a dictionary by the VALUES in descending order (highest value first):
 list_of_keys = sorted(my_map, key=my_map.get, reverse=True)
