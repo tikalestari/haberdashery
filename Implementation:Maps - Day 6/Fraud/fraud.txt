@@ -1,0 +1,65 @@
+Here we are going to test dictionaries/maps even more. This is another implementation problem, but keep in mind that
+you want the solution to this problem (each test case) to be O(n*m), where n is the number of users and m is the
+number of transactions.
+
+Problem description: You have been tasked with writing a credit card fraud detection system; however, it will
+be incredibly simple. If a user spends at or over $100000 in total, they will be flagged as a potentially fraudulent
+user. If the user doesn't spend that much, do nothing.
+
+Input description: The first line of input will be an integer T, representing the number of test cases. The first
+line of every test case will contain two integers, N and M. The next N lines will contain two strings, a username and
+a user id for a given user. All usernames and user ids will be unique. The next M lines will each contain two strings, a user
+id and a transaction id. A transaction id is the id of a transaction (i.e. the user buying something). The next M lines after that
+will contain two strings, the transaction id and the amount of money spent during that transaction.
+
+Output description: For each test case, print the usernames, sorted lexicographically (i.e. sorted normally), that were
+all marked as potentially fraudulent (spent over $100000 in total). If there are no potentially fraudulent users, print "NONE".
+
+Pro tips:
+1. To remove a specific character in a string, you can use .replace()
+Example:
+"$tika".replace("$","") == "tika"
+You'll need this in order to cast the transaction amount to an int.
+
+2. If you want to sort any list, use sorted(list). Example:
+sorted(["tika","cameron","whale"]) == ["cameron","tika","whale"]
+
+Example input:
+2
+3 4
+tika 1
+cameron 2
+whale 3
+1 1
+2 3
+3 2
+1 4
+1 $1000
+2 $100000
+3 $1
+4 $99000
+2 3
+cameron 1
+tika 2
+2 1
+2 2
+2 3
+1 $50000
+2 $49000
+3 $500
+
+Example output:
+tika
+whale
+NONE
+
+Explanation: For the first test case, tika has a user id of 1, cameron has a user id of 2, and whale has a user id
+of 3. Then we reach our transactions, which contain a user id and transaction id. user id 1 had a transaction with id 1 (i.e.
+tika placed a transaction that had an id of 1), user id 2 placed a transaction with id 3 (i.e. cameron placed this transaction),
+and so on. Then we reach the dollar amounts for each transaction. Transaction id 1 was $1000, transaction id 2 was $100000, and so on.
+First we can look at how much each user id spent. User id 1 spent $100000 exactly, because transactions 1 and 4 are $1000 and $99000, which
+add up to $100000, so we will add this user id to our list. User id 3 spent $100000 in a single transaction (number 2), so we will also add
+user id 3 to our list. Next we want to find the user names for these ids, doing that, we get "tika" and "whale".
+
+For the next test case, we repeat the same process except we find that there are no users who spent at or over $100000, so we print
+"NONE".
