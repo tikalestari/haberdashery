@@ -1,0 +1,52 @@
+Here we are going to use classes to solve this problem. Classes are really important for object oriented design,
+and are used pretty much everywhere.
+
+Problem description: You have been tasked with designing a bank account system that lets users deposit money,
+withdraw money and check their balance. Note that even though "balance" is not one of the listed commands, you must
+implement this method. In addition to this, you can also add two bank accounts together with the
+"+" operator. You will use this for the "MERGE" command. After two accounts have been merged, any operations on EITHER
+user id for the merged account will operate on the SAME account. So if we merge accounts, you withdraw 20 and I deposit 10,
+both of those operations happened on the same account. You will be given a list of users and you will have
+to make a bank account for each. Then you will be given some commands/tasks that you will have to perform on the
+bank account. Note that all accounts start with a balance of 0.
+
+The commands include:
+<user id> WITHDRAW <amount> # takes money out of an account
+<user id> DEPOSIT <amount> # adds money to an account
+<user id 1> MERGE <user id 2> # merges two accounts
+
+Input description: For this problem, you won't have multiple test cases. Just one. There will be no "T".
+The first line of input will contain two integers, N and M. N represents the number of users and M represents
+the number of commands you have to perform. The next N lines will have the user id of each of the N users. The next
+M lines will each have one of the commands in the format above.
+
+Output description: For each user, print the balance of their accounts at the end in the format specified below. If
+a user tries to withdraw money and doesn't have enough, print "NOT ENOUGH MONEY" and keep the account balance the
+same until they request an amount of money that they currently have.
+
+Note: There will not be any input or output files since there is only one test case. Just make sure your output has the
+same values as this output (not necessarily the same order).
+
+Example input:
+5 8
+1
+2
+3
+4
+5
+1 DEPOSIT 10
+1 WITHDRAW 5
+2 DEPOSIT 4
+3 DEPOSIT 5
+4 WITHDRAW 1
+5 MERGE 1
+3 WITHDRAW 2
+2 WITHDRAW 4
+
+Example output:
+NOT ENOUGH MONEY
+1 balance: 5
+5 balance: 5
+4 balance: 0
+3 balance: 3
+2 balance: 4
