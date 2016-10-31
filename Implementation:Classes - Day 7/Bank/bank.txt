@@ -49,4 +49,4 @@ NOT ENOUGH MONEY
 5 balance: 5
 4 balance: 0
 3 balance: 3
-2 balance: 4
+2 balance: 0

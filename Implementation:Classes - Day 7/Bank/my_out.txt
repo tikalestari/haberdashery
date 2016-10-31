@@ -1,0 +1,6 @@
+NOT ENOUGH MONEY
+1 balance: 5
+3 balance: 3
+2 balance: 0
+5 balance: 5
+4 balance: 0
