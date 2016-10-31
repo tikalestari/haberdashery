@@ -1,0 +1,52 @@
+Here we are going to test classes a bit more. This time, I won't be giving you any pro tips. Use what you've
+learned so far to solve the problem.
+
+Problem description: You are the proud owner of CatsRUs, a store to buy cats of all kinds of breeds. You will be given
+a bunch of cat types, the price for buying some number of a particular breed of cats in bulk and some orders for the cats
+at your store (from customers). Your job is to find the profit, which is the amount of money you gained SELLING cats
+minus the amount of money you spent BUYING the cats. To solve this problem, you MUST have a Store class and put your logic/code
+inside of that class.
+
+Input description: Like the last problem, you will not be given more than 1 test case. The first line of input will be 2 integers, N
+and M. N represents the number of cats and M represents the number of orders. The next N lines contain a string and three ints. The string
+represents the cat breed, the first int represents the number of cats of this breed that you can buy in bulk, the second int represents
+the price of buying that number of cats of that breed in bulk and the third int represents the price in which YOU will sell ONE cat of that breed
+to a customer. The next M lines will each contain a string and an int, the breed of the cat and
+the amount of cats that the customer will be buying of that particular breed.
+
+Output description: Whenever YOU buy some amount of a particular breed of cats in bulk, output "BUY <breed>".
+At the end of the test case, output "PROFIT: <profit amount>".
+
+Note: remember to add "self" as the first parameter for each class method. Remember that you are also allowed to use dictionaries
+to keep track of whatever you need.
+
+Example input:
+3 5
+blue 4 8 3
+red 3 5 2
+green 1 2 3
+green 3
+red 2
+red 1
+blue 5
+blue 2
+
+Example output:
+BUY: green
+BUY: green
+BUY: green
+BUY: red
+BUY: blue
+BUY: blue
+PROFIT: 9
+
+Explanation: Our first order is for 3 green cats. Currently, we have 0 in our inventory. Thus we must buy green cats in the bulk amount
+given to us until we have enough. This amounts to 3 green cats for $2 each, which adds $6 to our total costs and $9 to our total revenue.
+Our next order is for 2 red cats. We currently have 0 red cats in our inventory, so we need to buy in bulk until we have enough.
+We can buy 3 red cats for $5, then sell 2 of them for $2 each (we will have one left over since the bulk amount was 1 more than the order), and add
+$5 to our total costs and $4 to our total revenue. Then we have another order for a red cat, so we had $2 to our total revenue and $0 to our total
+costs since we didn't have to buy another bulk amount. Note that the current total revenue is $15 and our current total cost is $11. Our
+next order is for 5 blue cats. We currently have 0 in our inventory, so we need to buy in bulk until we get at least 5. This leads to us
+buying 2 bulk orders (4 cats in each bulk order) for $8 each, thus we add $16 to our total cost. We then sell 5 of these for $3 each, which
+adds $15 to our total revenue. Next we have an order for 2 more blue cats, which are $3 each, and since we still have 3 in our inventory
+we can just add $6 to our total revenue. Now our total revenue is $36 and our total cost is $27, so we output 36 - 27 = 9 for our total profit.

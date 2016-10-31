@@ -1,0 +1,9 @@
+3 5
+blue 4 8 3
+red 3 5 2
+green 1 2 3
+green 3
+red 2
+red 1
+blue 5
+blue 2
