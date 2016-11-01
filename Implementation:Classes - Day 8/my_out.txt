@@ -1,0 +1,7 @@
+BUY: green
+BUY: green
+BUY: green
+BUY: red
+BUY: blue
+BUY: blue
+PROFIT: 9
