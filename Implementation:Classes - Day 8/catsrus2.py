@@ -29,7 +29,7 @@ class Cat():
                 print("BUY: " + b)
         if self.inventory() >= n:
             profit += self.price() * n
-            self.i -=
+            self.i -= n 
 
 def catsrus():
     cats = {}
