@@ -1,10 +1,11 @@
-Jessica needs constant monitoring when she does her math homework.Write a function that takes a list of pairs [start, end]
+Jessica needs constant monitoring when she does her math homework. Write a function that takes a list of pairs [start, end]
 and returns the total amount of time that Jessica was monitored. Each [start, end] pair represents the times when Jessica's
 monitoring session goes from start to finish. All values will be positive integers no greater than 2^30 - 1. You will always
 have end > start for each interval.
 
 Input description: The first line of input will be an integer T, representing the number of test cases. The first
-line of every test case will contain an integer N, which is the number of intervals there are to monitor.
+line of every test case will contain an integer N, which is the number of intervals there are to monitor. Then there will be
+N number of intervals that has two integers, M and O, which represents the start time and finish time per pair of interval.
 
 Output description: Print the total amount of time Jessica has been monitored.
 
