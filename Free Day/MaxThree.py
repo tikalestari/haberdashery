@@ -1,9 +1,9 @@
 'Print the max 3 items in a list in one pass'
 def max_three(l):
     first = l[0]
-    second = l[0]
-    third = l[0]
-    for i in range(len(l)):
+    second = l[1]
+    third = l[2]
+    for i in range(3,len(l)):
         if l[i] > first:
             if second < first:
                 if third < second:
