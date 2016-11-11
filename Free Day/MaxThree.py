@@ -1,9 +1,9 @@
-'Print the max 3 items in a list in one pass'
+'Print the max 3 items in a list in one pass. Only positive numbers.'
 def max_three(l):
-    first = l[0]
-    second = l[1]
-    third = l[2]
-    for i in range(3,len(l)):
+    first = -1
+    second = -1
+    third = -1
+    for i in range(len(l)):
         if l[i] > first:
             if second < first:
                 if third < second:
