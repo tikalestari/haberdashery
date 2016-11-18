@@ -3,27 +3,20 @@
 
 def level(bars):
     level = 0
+    max_left = [0 for i in range(len(bars))]
+    max_right = [0 for i in range(len(bars))]
+    for i in range(1, len(bars)):
+        right_index = len(bars) - i - 1
+        max_left[i] = max(max_left[i-1], bars[i-1])
+        max_right[right_index] = max(max_right[right_index + 1], bars[right_index + 1])
+
     for i in range(len(bars)):
-        max_left = get_left_max(i, bars)
-        max_right = get_right_max(i, bars)
         current_bar = bars[i]
-        if current_bar < max_left and current_bar < max_right:
-            level += min(max_left, max_right) - current_bar
+        if current_bar < max_left[i] and current_bar < max_right[i]:
+            level += min(max_left[i], max_right[i]) - current_bar
 
     print(str(level))
 
-
-def get_left_max(num, bars):
-    max_left = 0
-    for i in range(0, num):
-        max_left = max(bars[i], max_left)
-    return max_left
-
-def get_right_max(num, bars):
-    max_right = 0
-    for i in range(num + 1, len(bars)):
-        max_right = max(bars[i], max_right)
-    return max_right
 
 if __name__ == "__main__":
     level([1,3,2,4,1,3,2,4])
