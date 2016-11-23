@@ -34,7 +34,6 @@ class Queue:
         if self.count == 0:
             print("Empty Queue")
             return
-
         temp_node = self.head.right
         while temp_node is not self.tail:
             print(temp_node.value)
