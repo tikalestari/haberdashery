@@ -30,6 +30,32 @@ class Queue:
             return temp_value.value
         return None
 
+    def remove(self, index):
+        node = self.get_node(index)
+        if node is None:
+            return None
+        node.left.right = node.right
+        node.right.left = node.left
+        return node.value
+
+    def get_node(self, index):
+        if index >= self.count:
+            return None
+        i = 0
+        temp_node = self.head.right
+        while i < index:
+            temp_node = temp_node.right
+            i += 1
+        return temp_node
+
+    def get(self, index):
+        node = self.get_node(index)
+        if node is not None:
+            return node.value
+        else:
+            return None
+
+
     def print_list(self):
         if self.count == 0:
             print("Empty Queue")
@@ -38,3 +64,13 @@ class Queue:
         while temp_node is not self.tail:
             print(temp_node.value)
             temp_node = temp_node.right
+
+q = Queue()
+q.add(3)
+q.add(4)
+q.add(8)
+q.add(9)
+print(q.get(0))
+print(q.get(1))
+q.remove(2)
+q.print_list()

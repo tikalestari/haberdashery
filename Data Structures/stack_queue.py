@@ -19,12 +19,3 @@ class Queue:
 
     def size(self):
         return self.size
-
-q = Queue()
-q.add(1)
-q.add(2)
-q.add(3)
-q.add(4)
-print(q.poll())
-q.add(5)
-print(q.poll())
