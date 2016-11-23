@@ -5,7 +5,6 @@ class Stack:
         self.container = [0 for i in range(container_size)]
         self.count = 0
 
-
     def pop(self):
         self.count -= 1
         return self.container[self.count+1]
