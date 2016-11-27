@@ -36,10 +36,23 @@ class LinkedArray:
         last_node.count += 1
 
     def get(self, index):
-        pass
+        if index >= self.count:
+            return None
+        temp_node = self.head.right
+        i = 1
+        if index == 0:
+            return temp_node.array[0]
+        while i <= index:
+            pointer = i % self.container_size
+            print(str(pointer))
+            if pointer == 0:
+                temp_node = temp_node.right
+            i += 1
+        return temp_node.array[pointer]
 
-    def pop(self, index):
-        pass
+    def pop(self):
+        index = (self.count - 1) % self.container_size
+        return self.tail.left.array[index]
 
     def print_list(self):
         if self.count == 0:
@@ -50,34 +63,6 @@ class LinkedArray:
             print (temp_node.array)
             temp_node = temp_node.right
 
-'''[1,2,3]->[1,2,3]->[1,2,3]
-
-index = count - (size * (num_nodes - 1)) - 1
-  1          5   -   (3   *    1)  - 1
-
-
-head<->[-1,-1,-1]<->tail
-add(1)
-count = 1
-index = 0 = count % size - 1
-add(2)
-count = 2
-index = 1 = count % size - 1
-add(3)
-count = 3
-index = 2 = count % size - 1
-add(4)
-index = 0
-
-head<->[1,2,3]<->[4,5,-1]<->tail
-5 = last_node[index]
-add(1)
-add(2)
-add(3)
-add(4)
-add(5)
-pop()
-'''
 a = LinkedArray(3)
 a.add(1)
 a.add(2)
@@ -85,3 +70,4 @@ a.add(3)
 a.add(4)
 a.add(5)
 a.print_list()
+print(a.pop())
