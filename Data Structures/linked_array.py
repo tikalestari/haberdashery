@@ -1,12 +1,16 @@
 class Node:
     def __init__(self, container_size):
         self.array = [-1 for i in range(container_size)]
+        self.container_size = container_size
         self.right = None
         self.left = None
         self.count = 0
 
     def is_full(self):
         return self.count == len(self.array)
+
+    def is_empty(self):
+        return self.count == 0
 
 class LinkedArray:
     def __init__(self, container_size):
@@ -40,19 +44,22 @@ class LinkedArray:
             return None
         temp_node = self.head.right
         i = 1
-        if index == 0:
-            return temp_node.array[0]
-        while i <= index:
-            pointer = i % self.container_size
-            print(str(pointer))
-            if pointer == 0:
-                temp_node = temp_node.right
+        while i * self.container_size <= index:
+            temp_node = temp_node.right
             i += 1
-        return temp_node.array[pointer]
+        return temp_node.array[index % self.container_size]
 
     def pop(self):
         index = (self.count - 1) % self.container_size
-        return self.tail.left.array[index]
+        last_node = self.tail.left
+        value = last_node.array[index]
+        last_node.array[index] = -1
+        self.count -= 1
+        if index == 0:
+            new_last = last_node.left
+            self.tail.left = new_last
+            new_last.right = self.tail
+        return value
 
     def print_list(self):
         if self.count == 0:
@@ -70,4 +77,3 @@ a.add(3)
 a.add(4)
 a.add(5)
 a.print_list()
-print(a.pop())
