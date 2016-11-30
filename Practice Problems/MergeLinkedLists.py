@@ -6,6 +6,23 @@ class Node:
 def merge(head_1, head_2):
     current_1 = head_1
     current_2 = head_2
+    while head_1.right is not None and head_2.right is not None:
+        if head_1.value <= head_2.value:
+            temp = head_1.right
+            head_1.right = head_2
+            head_1 = temp
+        elif head_1.value > head_2.value:
+            temp = head_2.right
+            head_2.right = head_1
+            head_2 = temp
+
+    if current_1.value < current_2.value:
+        return current_1
+    else:
+        return current_2
+
+    '''current_1 = head_1
+    current_2 = head_2
     new_head = Node(None)
     current = new_head
 
@@ -30,7 +47,7 @@ def merge(head_1, head_2):
         current_2 = current_2.right
         current = current.right
 
-    return new_head
+    return new_head'''
 
 a = Node(1)
 b = Node(3)
