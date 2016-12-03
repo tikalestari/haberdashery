@@ -12,6 +12,13 @@ def reverse(head):
         head = temp
     return prev
 
+def reverse_recursive(current, prev):
+    if current is None:
+        return prev
+    next_right = current.right
+    current.right = prev
+    return reverse_recursive(next_right, current)
+
 a = Node(1)
 b = Node(2)
 c = Node(3)
