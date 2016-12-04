@@ -13,21 +13,17 @@ class LruCache:
         self.tail = Node(None)
         self.head.right = self.tail
         self.tail.left = self.head
+        self.node_map = {}
 
     def get(self, value):
-        temp = self.head.right
-        while temp is not self.tail:
-            if temp.value == value:
-                temp_right = temp.right
-                temp_left = temp.left
-                temp_right.left = temp_left
-                temp_left.right = temp.right
-                self.count -= 1
-            temp = temp.right
+        if value in self.node_map:
+            self.remove(self.node_map[value])
         self.add(value)
 
-
-        # head->5->4->3->2->1->0->tail
+    def remove(self, node):
+        node.right.left = node.left
+        node.left.right = node.right
+        self.count -= 1
 
     def add(self, value):
         new_node = Node(value)
@@ -35,6 +31,9 @@ class LruCache:
         new_node.left = self.head
         self.head.right = new_node
         new_node.right.left = new_node
+        self.node_map[value] = new_node
+
+
         if self.count < self.capacity:
             self.count += 1
         else:
@@ -50,12 +49,6 @@ class LruCache:
         while temp_node is not self.tail:
             print (temp_node.value)
             temp_node = temp_node.right
-
-
-
-#[head<->1<->2<->3<->4<->5<->tail]
-#add(0)
-#[head<->0<->1<->2<->3<->4<->5<->tail]
 
 a = LruCache(5)
 a.add(1)
