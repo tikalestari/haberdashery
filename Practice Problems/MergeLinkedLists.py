@@ -6,8 +6,6 @@ class Node:
 def merge(head_1, head_2):
     current_1 = head_1
     current_2 = head_2
-    # 1->2->3->4->5->6->7->None
-    # 8->None
     while head_1.right is not None and head_2.right is not None:
         if head_1.value <= head_2.value:
             temp = head_1.right
