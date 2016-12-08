@@ -32,8 +32,8 @@ b.right = c
 c.right = d
 d.right = e
 e.right = f
-f.right = c
+f.right = b
 
-#1->2->4->5->6->7->4
+#1->2->4->5->6->7->2
 
 print_list(cycle(a))
