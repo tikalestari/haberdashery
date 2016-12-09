@@ -16,10 +16,10 @@ def insertion_sort(a):
         temp = current
         while left is not head and temp.value < left.value:
             left = left.prev
-        current_right = current.next #connecting current's left and right nodes
-        current_left = current.prev
-        current_right.left = current_left
-        current_left.next = current_right
+        current_next = current.next #connecting current's left and right nodes
+        current_prev = current.prev
+        current_next.prev = current_prev
+        current_prev.next = current_next
 
         right = left.next #placing temp in the correct spot
         left.next = temp
@@ -32,7 +32,7 @@ def insertion_sort(a):
     return head.next
 
 def print_list(node):
-    while node is not None:
+    while node.value is not None:
         print(node.value)
         node = node.next
 
@@ -49,6 +49,7 @@ g = Node(2)
 h = Node(4)
 tail = Node(None)
 
+head.next = a
 a.next = b
 a.prev = head
 b.next = c
@@ -65,6 +66,7 @@ g.next = h
 g.prev = f
 h.prev = g
 h.next = tail
+tail.prev = h
 #6->5->3->1->8->7->2->4->None
 
 print_list(a)
