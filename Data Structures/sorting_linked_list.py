@@ -11,17 +11,23 @@ def insertion_sort(a):
     temp = None
     head = a.prev
 
+    if current is tail:
+        return head.next
+
     while current is not tail:
         left = current.prev
         temp = current
         while left is not head and temp.value < left.value:
             left = left.prev
-        current_next = current.next #connecting current's left and right nodes
+
+        #connecting current's left and right nodes
+        current_next = current.next
         current_prev = current.prev
         current_next.prev = current_prev
         current_prev.next = current_next
 
-        right = left.next #placing temp in the correct spot
+        #placing temp in the correct spot
+        right = left.next
         left.next = temp
         right.prev = temp
         temp.next = right
