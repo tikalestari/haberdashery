@@ -9,3 +9,16 @@ bunnyEars2(0) → 0
 bunnyEars2(1) → 2
 bunnyEars2(2) → 5
 '''
+
+
+def bunnies(n):
+    if n == 0:
+        return 0
+    elif n % 2 == 1:
+        return 2 + bunnies(n - 1)
+    else:
+        return 3 + bunnies(n - 1)
+
+if __name__ == "__main__":
+    while True:
+        print(bunnies(int(input())))
