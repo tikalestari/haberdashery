@@ -26,7 +26,7 @@ def num_islands(matrix):
     return count
 
 def zero_out_island(matrix, row, col):
-    # if row/col index is out of bounds, return.
+    # if row/col index is out of bounds or 0, return
     # also known as flood fill algorithm
     if row >= len(matrix) or col >= len(matrix[0]):
         return
