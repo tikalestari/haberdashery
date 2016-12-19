@@ -1,9 +1,9 @@
 '''
 SUDOKU SOLVER
-Determine if the board is solvable
+Determine if the board is solvable 
 '''
 
-def sudoku(matrix, row, col):
+def sudoku(matrix,):
   for i in range(len(matrix)):
     for j in range(len(matrix[0])):
       if matrix[i][j] == 0:
@@ -15,6 +15,6 @@ def sudoku(matrix, row, col):
         # otherwise, return false
         for k in range(1,10):
             matrix[i][j] = k
-            if is_valid(matrix,i,j,k) and sudoku(matrix,i,j):
+            if is_valid(matrix,k) and sudoku(matrix):
                 return True
         return False
