@@ -24,6 +24,7 @@ def star(matrix, row, col):
         return sys.maxsize
 
 
+
 m = [[0,0,0,0,0],[0,"X","X","X","X"],["*",0,0,0,0]]
 print(star(m,0,0))
 
