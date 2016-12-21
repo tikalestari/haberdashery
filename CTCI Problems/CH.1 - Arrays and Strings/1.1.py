@@ -3,17 +3,14 @@ unique characters. What if you can't use additional
 data structures?'''
 
 def unique_1(s):
-    characters = {} # make the keys the letters of the alphabet
-    if len(s) > 26
-        return false
-    for i in len(s)-1:
-        key = s[i:i+1]
-        if key in characters:
-
-
+    check = 0
+    for i in s:
+        val = ord(i) - ord('a')
+        if check & (1 << val) > 0:
+            return False
         else:
-            characters[key] = true
-                return false
+            check |= (1 << val)
+    return True
 
 if __name__ == '__main__':
     while True:
