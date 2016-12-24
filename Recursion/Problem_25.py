@@ -6,20 +6,22 @@ using only words in the dictionary
 '''
 
 def function(words,s,start,end,result):
+    if end == len(s)+1:
+        print(result)
+        return result == s
     if s[start:end] in words:
-        result += s[start:end]
-        start = end
-    if end == len(s):
-        if result == s:
-            print("True")
+        if function(words,s,start,end+1,result):
             return True
         else:
-            print("False")
-            return False
-    function(words,s,start,end+1,result)
+            result += s[start:end]
+            start = end
+    if function(words,s,start,end+1,result):
+        return True
+
+    return False
 
 
 
-words = ["bar", "cat", "foo"]
-s = "foobar"
+words = ["bo", "bob", "cat"]
+s = "bobcat"
 function(words,s,0,0,"")
