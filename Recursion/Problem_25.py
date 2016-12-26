@@ -7,14 +7,12 @@ using only words in the dictionary
 
 def function(words,s,start,end,result):
     if end == len(s)+1:
-        print(result)
         return result == s
     if s[start:end] in words:
         if function(words,s,start,end+1,result):
             return True
-        else:
-            result += s[start:end]
-            start = end
+        result += s[start:end]
+        start = end
     if function(words,s,start,end+1,result):
         return True
 
@@ -22,6 +20,6 @@ def function(words,s,start,end,result):
 
 
 
-words = ["bo", "bob", "cat"]
-s = "bobcat"
-function(words,s,0,0,"")
+words = ["fo","foob","ar"]
+s = "foobar"
+print(function(words,s,0,0,""))
