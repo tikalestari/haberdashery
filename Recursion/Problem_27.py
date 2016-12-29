@@ -28,10 +28,10 @@ def combination(numbers,index,current,combos,target):
     if index == len(numbers):
         return
 
-    combination(numbers,index+1,current,combos,target)
+    combination(numbers,index+1,current,combos,target) #do nothing (exclude)
     num = numbers[index]
-    current.append(num)
-    combination(numbers,index+1,current,combos,target-num)
+    current.append(num) #include
+    combination(numbers,index+1,current,combos,target-num) #call include, change target
     current.pop()
 
 n = [10,1,2,7,6,1,5]
