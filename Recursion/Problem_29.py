@@ -19,7 +19,7 @@ Output: 1 1 1 1
 
 def sequences(x, seq):
     if x == 0:
-        print(seq)
+        print(seq[1:])
         return
 
     for i in range(1,x+1):
