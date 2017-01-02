@@ -17,13 +17,20 @@ Output: 1 1 1 1
         4
 '''
 
-def sequences(x, seq):
+def sequences_helper(x, prev, seq):
     if x == 0:
         print(seq[1:])
         return
 
     for i in range(1,x+1):
-        sequences(x-i,seq+" "+str(i))
+        if seq == "":
+            sequences_helper(x-i,i,seq+" "+str(i))
+        if i <= prev:
+            sequences_helper(x-i,i,seq+" "+str(i))
 
+def sequences(x):
+    sequences_helper(x,0,"")
 
-sequences(4,"")
+if __name__ == "__main__":
+    while True:
+        sequences(int(input()))
