@@ -6,20 +6,20 @@ What is the minimum number of coins it takes to make K
 '''
 import sys
 
-def coins(coin_set, index, coin_counter, k):
+def coins(coin_set, index, k):
     if k == 0:
-        return coin_counter
+        return 0
 
     if k < 0:
         return sys.maxsize
 
     if index == len(coin_set):
         return sys.maxsize
-
-    return min(coins(coin_set,index+1,coin_counter+1,k-coin_set[index]), coins(coin_set,index,coin_counter+1,k-coin_set[index]), coins(coin_set,index+1,coin_counter,k))
+                    #include coin, move on to next index             #include coin, index stays               #exclude coin
+    return min(1 + coins(coin_set,index+1,k-coin_set[index]), 1 + coins(coin_set,index,k-coin_set[index]), coins(coin_set,index+1,k))
 
 
 
 
 c = [1,5,10,25]
-print(coins(c,0,0,13))
+print(coins(c,0,100))
