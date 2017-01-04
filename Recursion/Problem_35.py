@@ -11,7 +11,7 @@ If you get confused, it's called the knapsack problem
 
 Approach:
 find all the combination of items that can fit in K
-find the max of all those combinations
+find the max value of all those combinations
 '''
 
 def knapsack(prices, weights, index, value, k):
