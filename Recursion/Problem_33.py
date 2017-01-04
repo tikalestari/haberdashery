@@ -15,8 +15,13 @@ def coins(coin_set, index, k):
 
     if index == len(coin_set):
         return sys.maxsize
-                    #include coin, move on to next index             #include coin, index stays               #exclude coin
-    return min(1 + coins(coin_set,index+1,k-coin_set[index]), 1 + coins(coin_set,index,k-coin_set[index]), coins(coin_set,index+1,k))
+
+    #include coin, move on to next index
+    return min(1 + coins(coin_set,index+1,k-coin_set[index]), \
+    #include coin, index stays
+    1 + coins(coin_set,index,k-coin_set[index]), \
+    #exclude coin
+    coins(coin_set,index+1,k))
 
 
 
