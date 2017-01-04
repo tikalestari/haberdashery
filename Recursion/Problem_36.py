@@ -6,13 +6,7 @@ Because 1+12+3 = 16 and 14+2 = 16
 
 def partition(array, index, part_1, part_2):
     if index == len(array):
-        print(part_1)
-        print(part_2)
-        print()
         if sum(part_1) == sum(part_2):
-            print(part_1)
-            print(part_2)
-            print("found equal")
             return True
         else:
             return False
