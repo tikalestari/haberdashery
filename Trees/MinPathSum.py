@@ -24,8 +24,6 @@ def min_path(node):
     return node.value + min(min_path(node.left), min_path(node.right))
 
 
-
-
 a = Node(1)
 b = Node(2)
 c = Node(3)
