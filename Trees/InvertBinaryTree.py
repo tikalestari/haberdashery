@@ -1,6 +1,7 @@
 '''
 Invert a binary tree
 
+Original:
       1
     /   \
    2     3
@@ -8,7 +9,6 @@ Invert a binary tree
  4   5  6  7
 
 Invert:
-
        1
      /   \
     3     2
