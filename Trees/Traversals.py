@@ -6,13 +6,13 @@ class Node:
 
 def inorder(node):
     if node is not None:
-        inorder(node.left)
-        print(node.value)
-        inorder(node.right)
+        yield from inorder(node.left)
+        yield node.value
+        yield from inorder(node.right)
 
 def preorder(node):
     if node is not None:
-        print(node.value)
+        yield node.value
         preorder(node.left)
         preorder(node.right)
 
@@ -20,7 +20,7 @@ def postorder(node):
     if node is not None:
         postorder(node.left)
         postorder(node.right)
-        print(node.value)
+        yield node.value
 
 
 
@@ -44,8 +44,13 @@ g.right = i
 i.left = h
 
 print("In-Order Traversal:")
-inorder(f)
+t1 = inorder(f)
+print(next(t1))
+print(next(t1))
+print(next(t1))
 print("Pre-Order Traversal:")
-preorder(f)
+t2 = preorder(f)
+next(t2)
 print("Post-Order Traversal:")
-postorder(f)
+t3 = postorder(f)
+next(t3)
