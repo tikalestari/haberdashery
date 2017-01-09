@@ -1,6 +1,5 @@
 '''
 Determine if a tree can be split into two equal parts
-
 '''
 
 class Node:
