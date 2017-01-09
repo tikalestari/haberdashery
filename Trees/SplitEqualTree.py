@@ -10,23 +10,27 @@ class Node:
         self.subtree_count = 0
 
 def count_subtree(root):
-    count = 0
     for node in root.children:
-        count += 1 + count_subtree(node)
-    root.subtree_count = count
-    return count + 1
+        root.subtree_count += 1 + count_subtree(node)
+    return root.subtree_count
 
-def split(root):
-    for node in root.children:
-        if root.subtree_count == node.subtree_count:
-            return True
+def check_split(root):
+    if root.subtree_count % 2 == 0:
         return False
+    return split(root, (root.subtree_count + 1)/2)
 
+def split(root, half):
+    for node in root.children:
+        if node.subtree_count == half - 1:
+            return True
+        if node.subtree_count > 0:
+            split(node, half)
+    return False
 
 j = Node('j',[])
 i = Node('i',[])
 h = Node('h',[])
-g = Node('g',[h,i,j])
+g = Node('g',[h,i,j,k])
 f = Node('f',[])
 e = Node('e',[])
 d = Node('d',[g])
@@ -34,7 +38,4 @@ c = Node('c',[])
 b = Node('b',[])
 a = Node('a',[b,c,d,e,f])
 count_subtree(a)
-print(a.subtree_count)
-print(d.subtree_count)
-print(g.subtree_count)
-print(i.subtree_count)
+print(check_split(a))
