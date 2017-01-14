@@ -8,8 +8,8 @@ You can't skip a node in the traversal
     c
    /
   a
-   \
-    t   = True
+ / \
+t   t   = True
 
 "catt"
 
@@ -27,31 +27,32 @@ class Node:
 
 def main(node,word,index,visited):
     if index == len(word):
-        print("tru")
         return True
-    if node.value == word[index:index+1]:
-        print("yas")
-        s.add(node)
-        main(node,word,index+1,visited)
-    for n in node.nodes:
-        if n.value == word[index:index+1]:
-            print("woo")
-            s.add(n)
-            main(n,word,index+1,visited)
-    for n in node.nodes:
-        if n not in visited:
-            return False
+    elif node.value == word[index:index+1]:
+        visited.add(node)
+        return main(node,word,index+1,visited)
+    else:
+        for n in node.nodes:
+            if n.value == word[index:index+1]:
+                visited.add(n)
+                if main(n,word,index+1,visited):
+                    return True
+            elif n not in visited:
+                return False
 
-    for n in visited:
-        print(n.value)
-    return True
+    return False
+
 
 
 
 a = Node('a',[])
 t = Node('t',[a])
+tt = Node('t',[a])
 c = Node('c',[a])
 a.nodes.append(c)
 a.nodes.append(t)
+a.nodes.append(tt)
 s = set()
-print(main(c,"catte",0,s))
+print(main(c,"catet",0,s))
+for i in s:
+    print(i.value)
