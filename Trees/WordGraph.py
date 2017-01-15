@@ -53,6 +53,6 @@ a.nodes.append(c)
 a.nodes.append(t)
 a.nodes.append(tt)
 s = set()
-print(main(c,"catet",0,s))
+print(main(c,"catt",0,s))
 for i in s:
     print(i.value)
