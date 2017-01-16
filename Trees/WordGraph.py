@@ -10,13 +10,6 @@ You can't skip a node in the traversal
   a
  / \
 t   t   = True
-
-"catt"
-
-    c
-   / \
-  a   t = False
-
 '''
 
 class Node:
@@ -24,21 +17,28 @@ class Node:
         self.value = value
         self.nodes = nodes
 
-
-def main(node,word,index,visited):
+def dfs(node,word):
+    for n in node.nodes:
+        if n.value == word[0,1]:
+            if main(n,word,0,[])
+def main(node,word,index,nodes_list,total_nodes):
     if index == len(word):
-        return True
-    elif node.value == word[index:index+1]:
+        if len(nodes_list) == total_nodes:
+            return True
+
+    if node.value == word[index]:
         visited.add(node)
-        return main(node,word,index+1,visited)
-    else:
-        for n in node.nodes:
-            if n.value == word[index:index+1]:
-                visited.add(n)
-                if main(n,word,index+1,visited):
-                    return True
-            elif n not in visited:
-                return False
+        main(node,word,index,nodes_list,total_nodes)
+
+    already_in_visited = node in nodes_list
+    nodes_list.add(node)
+
+    for n in node.nodes:
+        if main(n,word,index,nodes_list,total_nodes):
+            return True
+        return False
+
+    main(node,word,index,nodes_list)
 
     return False
 
