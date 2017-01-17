@@ -20,7 +20,10 @@ class Node:
 def dfs(node,word):
     for n in node.nodes:
         if n.value == word[0,1]:
-            if main(n,word,0,[])
+            if main(n,word,0,[]):
+                return True
+    return False
+
 def main(node,word,index,nodes_list,total_nodes):
     if index == len(word):
         if len(nodes_list) == total_nodes:
