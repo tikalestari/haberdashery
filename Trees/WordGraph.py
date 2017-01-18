@@ -22,7 +22,7 @@ def dfs(node,word):
         if n.value == word[0,1]:
             if main(n,word,0,[]):
                 return True
-    return False
+    return False 
 
 def main(node,word,index,nodes_list,total_nodes):
     if index == len(word):
