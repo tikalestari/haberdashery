@@ -35,4 +35,5 @@ d = Node(7)
 binary(a,b)
 binary(a,c)
 binary(a,d)
+
 print_tree(a)
