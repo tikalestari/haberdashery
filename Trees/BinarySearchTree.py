@@ -48,8 +48,22 @@ class BST:
             else:
                 self.find_helper(current.left, value)
 
-    def remove():
-        pass
+    def remove(self, value):
+        r = self.root
+        self.remove_helper(r,r,value)
+
+    def remove_helper(self, current, parent, value):
+        if current.value == value:
+            if node.left is None and node.right is None:
+                node = None
+            elif node.left is None and node.right:
+                parent.right = node.right
+            elif node.right is None and node.left:
+                parent.left = node.left
+        elif value > current.value:
+                self.remove_helper(current.right, current, value)
+        else:
+            self.remove_helper(current.left, current, value)
 
     def print_tree(self):
         r = self.root
