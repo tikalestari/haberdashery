@@ -89,3 +89,4 @@ tree.add(d)
 
 tree.print_tree()
 tree.find(5)
+tree.find(4)
