@@ -65,6 +65,26 @@ class BST:
         else:
             self.remove_helper(current.left, current, value)
 
+    def find_min(self):
+        r = self.root
+        self.find_min_helper(r)
+
+    def find_min_helper(self, root):
+        if root.left is None:
+            print("The minimum of this tree is "+ str(root.value))
+            return
+        self.find_min_helper(root.left)
+
+    def find_max(self):
+        r = self.root
+        self.find_max_helper(r)
+
+    def find_max_helper(self, root):
+        if root.right is None:
+            print("The maximum of this tree is "+ str(root.value))
+            return
+        self.find_max_helper(root.right)
+
     def print_tree(self):
         r = self.root
         self.print_tree_helper(r)
@@ -89,4 +109,5 @@ tree.add(d)
 
 tree.print_tree()
 tree.find(5)
-tree.find(4)
+tree.find_min()
+tree.find_max()
