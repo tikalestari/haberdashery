@@ -72,7 +72,7 @@ class BST:
     def find_min_helper(self, root):
         if root.left is None:
             print("The minimum of this tree is "+ str(root.value))
-            return
+            return root
         self.find_min_helper(root.left)
 
     def find_max(self):
@@ -82,8 +82,23 @@ class BST:
     def find_max_helper(self, root):
         if root.right is None:
             print("The maximum of this tree is "+ str(root.value))
-            return
+            return root
         self.find_max_helper(root.right)
+
+    def find_successor(self, value):
+        r = self.root
+        if value == self.find_max(r).value:
+            print("No successor")
+            return None
+        self.find_successor_helper(r, value)
+
+    def find_successor_helper(self, current, value):
+        if current.value == value:
+            if current.
+            if current.left is None and current.right is None:
+
+            if current.right:
+                return self.find_min(current.right)
 
     def print_tree(self):
         r = self.root
