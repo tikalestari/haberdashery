@@ -5,7 +5,7 @@ using a temp variable
 
 def swap_1(x,y):
     x = x ^ y
-    y = y ^ x
+    y = x ^ y
     x = x ^ y
     print("swapped_1  x = "+ str(x))
     print("swapped_1  y = "+ str(y))
