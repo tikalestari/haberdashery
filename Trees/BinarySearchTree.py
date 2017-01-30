@@ -60,10 +60,10 @@ class BST:
 
     def remove(self, value):
         r = self.root
-        self.remove_helper(r,r,value)
+        self.remove_helper(r,value)
 
-    def remove_helper(self, current, parent, value):
-        if current.value == value:
+    def remove_helper(self, current, value):
+    '''    if current.value == value:
             if node.left is None and node.right is None:
                 node = None
             elif node.left is None and node.right:
@@ -73,8 +73,28 @@ class BST:
         elif value > current.value:
                 self.remove_helper(current.right, current, value)
         else:
-            self.remove_helper(current.left, current, value)
-
+            self.remove_helper(current.left, current, value)'''
+        if current.value == value:
+            if current.right and current.left:
+                suc = self.find_min_helper(current.right)
+                if suc.parent.left == suc:
+                    suc.parent.left = suc.right
+                else:
+                    suc.parent.right = suc.right
+                suc.left = current.left
+                suc.right = current.right
+                return suc
+            elif current.left:
+                    return current.left
+                else:
+                    return current.right
+            else:
+                if current.value > value:
+                    if current.left:
+                        current.left = self.remove_helper(current.left,value)
+                elif current.right:
+                    current.right = self.remove_helper(current.right,value)
+            return current
     def find_min(self):
         r = self.root
         return self.find_min_helper(r)
@@ -168,3 +188,4 @@ tree.find(5)
 tree.find_min()
 tree.find_max()
 tree.find_successor(10)
+tree.remove(4)
