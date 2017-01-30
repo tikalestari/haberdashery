@@ -63,17 +63,6 @@ class BST:
         self.remove_helper(r,value)
 
     def remove_helper(self, current, value):
-    '''    if current.value == value:
-            if node.left is None and node.right is None:
-                node = None
-            elif node.left is None and node.right:
-                parent.right = node.right
-            elif node.right is None and node.left:
-                parent.left = node.left
-        elif value > current.value:
-                self.remove_helper(current.right, current, value)
-        else:
-            self.remove_helper(current.left, current, value)'''
         if current.value == value:
             if current.right and current.left:
                 suc = self.find_min_helper(current.right)
@@ -84,17 +73,17 @@ class BST:
                 suc.left = current.left
                 suc.right = current.right
                 return suc
-            elif current.left:
+            else:
+                if current.left:
                     return current.left
                 else:
                     return current.right
-            else:
-                if current.value > value:
-                    if current.left:
-                        current.left = self.remove_helper(current.left,value)
-                elif current.right:
-                    current.right = self.remove_helper(current.right,value)
-            return current
+        elif current.value > value:
+            if current.left:
+                    current.left = self.remove_helper(current.left,value)
+            elif current.right:
+                current.right = self.remove_helper(current.right,value)
+        return current
     def find_min(self):
         r = self.root
         return self.find_min_helper(r)
