@@ -65,31 +65,25 @@ class BST:
 
     def remove_helper(self, current, value):
         if current.value == value:
-            #print("CASH ME")
-            if current.left is None and current.right is None: # leaf node
-                #print("OUSSIDE 1")
+            if not current.left and not current.right: # leaf node
                 if current.value > current.parent.value:
                     current.parent.right = None
                 else:
                     current.parent.left = None
                 return
-            elif current.left is None and current.right is not None: # only has right child
-                #print("OUSSIDE 2")
+            elif not current.left and current.right: # only has right child
                 if current.value > current.parent.value:
                     current.parent.right = current.right
-                    return
                 else:
                     current.parent.left = current.right
-                    return
-            elif current.right is None and current.left is not None: # only has left child
-                #print("OUSSIDE 2")
+                return
+            elif not current.right and current.left: # only has left child
                 if current.value > current.parent.value:
                     current.parent.right = current.left
-                    return
                 else:
                     current.parent.left = current.left
-                    return
-            elif current.right is not None and current.left is not None: # has two children
+                return
+            elif current.right and current.left: # has two children
                 right_child = current.right
                 left_child = current.left
                 min_right_subtree = self.find_min_helper(right_child)
@@ -118,7 +112,6 @@ class BST:
                 print("oops node not found")
                 return
         print("removed" + str(value))
-
         return
 
 
@@ -214,6 +207,6 @@ tree.find(5)
 tree.find_min()
 tree.find_max()
 tree.find_successor(10)
-tree.remove(8)
+tree.remove(3)
 print()
 tree.print_tree()
