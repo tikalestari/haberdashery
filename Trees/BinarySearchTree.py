@@ -57,6 +57,7 @@ class BST:
                 print(str(value) + " is NOT in this tree.")
             else:
                 self.find_helper(current.left, value)
+        return None
 
     def remove(self, value):
         r = self.root
@@ -64,33 +65,69 @@ class BST:
 
     def remove_helper(self, current, value):
         if current.value == value:
-            if current.right and current.left:
-                suc = self.find_min_helper(current.right)
-                if suc.parent.left == suc:
-                    suc.parent.left = suc.right
+            #print("CASH ME")
+            if current.left is None and current.right is None: # leaf node
+                #print("OUSSIDE 1")
+                if current.value > current.parent.value:
+                    current.parent.right = None
                 else:
-                    suc.parent.right = suc.right
-                suc.left = current.left
-                suc.right = current.right
-                return suc
+                    current.parent.left = None
+                return
+            elif current.left is None and current.right is not None: # only has right child
+                #print("OUSSIDE 2")
+                if current.value > current.parent.value:
+                    current.parent.right = current.right
+                    return
+                else:
+                    current.parent.left = current.right
+                    return
+            elif current.right is None and current.left is not None: # only has left child
+                #print("OUSSIDE 2")
+                if current.value > current.parent.value:
+                    current.parent.right = current.left
+                    return
+                else:
+                    current.parent.left = current.left
+                    return
+            elif current.right is not None and current.left is not None: # has two children
+                right_child = current.right
+                left_child = current.left
+                min_right_subtree = self.find_min_helper(right_child)
+                self.remove_helper(right_child, min_right_subtree.value)
+                self.print_tree()
+                if current.value > current.parent.value:
+                    current.parent.right = min_right_subtree
+                    min_right_subtree.left = left_child
+                    min_right_subtree.right = right_child
+                    return
+                else:
+                    current.parent.left = min_right_subtree
+                    min_right_subtree.left = left_child
+                    min_right_subtree.right = right_child
+                    return
+        elif value > current.value:
+            if current.right:
+                self.remove_helper(current.right, value)
             else:
-                if current.left:
-                    return current.left
-                else:
-                    return current.right
-        elif current.value > value:
+                print("oops node not found")
+                return
+        else:
             if current.left:
-                    current.left = self.remove_helper(current.left,value)
-            elif current.right:
-                current.right = self.remove_helper(current.right,value)
-        return current
+                self.remove_helper(current.left, value)
+            else:
+                print("oops node not found")
+                return
+        print("removed" + str(value))
+
+        return
+
+
     def find_min(self):
         r = self.root
         return self.find_min_helper(r)
 
     def find_min_helper(self, root):
         if root.left is None:
-            print("The minimum of this tree is "+ str(root.value))
             return root
         return self.find_min_helper(root.left)
 
@@ -177,4 +214,6 @@ tree.find(5)
 tree.find_min()
 tree.find_max()
 tree.find_successor(10)
-tree.remove(4)
+tree.remove(8)
+print()
+tree.print_tree()
