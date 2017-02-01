@@ -7,6 +7,9 @@ Binary Search Tree
   1   6      14
      /  \    /
      4   7 13
+
+pic of binary tree
+https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Binary_search_tree.svg/300px-Binary_search_tree.svg.png
 '''
 
 class Node:
@@ -169,6 +172,9 @@ class BST:
                 print(str(value) + " is NOT in this tree.")
             else:
                 self.find_successor_helper(current.left, value)
+
+    def verify_if_bst(self):
+        return True
 
     def print_tree(self):
         r = self.root
