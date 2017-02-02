@@ -186,20 +186,32 @@ class BST:
         print(node.value)
         self.print_tree_helper(node.right)
 
+def inorder(node):
+    if node is not None:
+        yield from inorder(node.left)
+        yield node.value
+        yield from inorder(node.right)
 
 def verify_if_bst(root):
-    if not root.left and not root.right:
-        return True
-    if root.value > root.left.value:
-        print("cash me")
-        if verify_if_bst(root.left):
-            return verify_if_bst(root.left)
-    elif root.value <= root.right.value:
-        print("ousside")
-        if verify_if_bst(root.right):
-            return verify_if_bst(root.right)
-    else:
+    inorder_traversal = inorder(root)
+    node = next(inorder_traversal)
+    next_node = next(inorder_traversal)
+    while node < next_node:
+        node = next_node
+        try:
+            next_node = next(inorder_traversal)
+        except StopIteration:
+            break
+    if node > next_node:
         return False
+    else:
+        return True
+
+
+
+
+
+
 
 
 a = Node(8)
@@ -229,8 +241,8 @@ bb = Node(1)
 cc = Node(10)
 dd = Node(4)
 
-aa.left = bb
-aa.right = cc
+aa.left = cc
+aa.right = bb
 bb.right = dd
 
 
@@ -242,4 +254,4 @@ tree.find_successor(10)
 tree.remove(3)
 print()
 tree.print_tree()
-print(verify_if_bst(a))
+print(verify_if_bst(aa))
