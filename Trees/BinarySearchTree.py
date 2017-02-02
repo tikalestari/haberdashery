@@ -173,8 +173,7 @@ class BST:
             else:
                 self.find_successor_helper(current.left, value)
 
-    def verify_if_bst(self):
-        return True
+
 
     def print_tree(self):
         r = self.root
@@ -186,6 +185,22 @@ class BST:
         self.print_tree_helper(node.left)
         print(node.value)
         self.print_tree_helper(node.right)
+
+
+def verify_if_bst(root):
+    if not root.left and not root.right:
+        return True
+    if root.value > root.left.value:
+        print("cash me")
+        if verify_if_bst(root.left):
+            return verify_if_bst(root.left)
+    elif root.value <= root.right.value:
+        print("ousside")
+        if verify_if_bst(root.right):
+            return verify_if_bst(root.right)
+    else:
+        return False
+
 
 a = Node(8)
 b = Node(3)
@@ -208,6 +223,17 @@ tree.add(g)
 tree.add(h )
 tree.add(i )
 
+
+aa = Node(8)
+bb = Node(1)
+cc = Node(10)
+dd = Node(4)
+
+aa.left = bb
+aa.right = cc
+bb.right = dd
+
+
 tree.print_tree()
 tree.find(5)
 tree.find_min()
@@ -216,3 +242,4 @@ tree.find_successor(10)
 tree.remove(3)
 print()
 tree.print_tree()
+print(verify_if_bst(a))
