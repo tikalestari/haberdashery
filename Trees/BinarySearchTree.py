@@ -92,7 +92,13 @@ class BST:
                 min_right_subtree = self.find_min_helper(right_child)
                 self.remove_helper(right_child, min_right_subtree.value)
                 self.print_tree()
-                if current.value > current.parent.value:
+                if self.root.value == value:
+                    new_root = Node(min_right_subtree.value)
+                    new_root.left = left_child
+                    new_root.right = right_child
+                    self.root = new_root
+                    return
+                elif current.value > current.parent.value:
                     current.parent.right = min_right_subtree
                     min_right_subtree.left = left_child
                     min_right_subtree.right = right_child
@@ -208,7 +214,7 @@ def verify_if_bst(root):
         return True
 
 def two_node_sum(value, root):
-    pass  
+    pass
 
 
 
@@ -254,7 +260,7 @@ tree.find(5)
 tree.find_min()
 tree.find_max()
 tree.find_successor(10)
-tree.remove(3)
+tree.remove(8)
 print()
 tree.print_tree()
 print(verify_if_bst(aa))
