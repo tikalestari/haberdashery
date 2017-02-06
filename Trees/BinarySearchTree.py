@@ -213,9 +213,35 @@ def verify_if_bst(root):
     else:
         return True
 
-def two_node_sum(value, root):
+def is_sum_tree(root):
+# return True if the value of the root is equal to sum of the nodes
+# in its left and right subtrees.
+    if not root:
+        return True
+    if not root.left and not root.right:
+        return True
+    left_sum = sum_helper(root.left)
+    right_sum = sum_helper(root.right)
+
+    if root.value == left_sum + right_sum:
+        return True
+
+    return False
+
+def sum_helper(root):
+    if not root:
+        return 0
+    else:
+        return sum_helper(root.left) + root.value + sum_helper(root.right)
+
+
+def two_node_sum(value, root): #not finished
     if value == root.value:
         return True
+    if root.left:
+        return two_node_sum(value,root.left)
+    if root.right:
+        return two_node_sum(value,root.left)
     else:
         c = value - root.value
         if root.left and root.right:
@@ -273,6 +299,13 @@ aa.left = cc
 aa.right = bb
 bb.right = dd
 
+sum_tree = BST()
+sum_tree.root = Node(30)
+sum_tree.add(Node(10))
+sum_tree.add(Node(5))
+sum_tree.add(Node(7))
+sum_tree.add(Node(8))
+
 
 tree.print_tree()
 tree.find(5)
@@ -283,3 +316,5 @@ tree.remove(8)
 print()
 tree.print_tree()
 print(verify_if_bst(aa))
+print(is_sum_tree(sum_tree.root))
+sum_tree.print_tree()
