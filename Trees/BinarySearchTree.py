@@ -214,7 +214,26 @@ def verify_if_bst(root):
         return True
 
 def two_node_sum(value, root):
-    pass
+    if value == root.value:
+        return True
+    else:
+        c = value - root.value
+        if root.left and root.right:
+            if two_node_sum(c, root.left):
+                return True
+            if two_node_sum(c, root.left):
+                return True
+        elif root.left:
+            if two_node_sum(c, root.left):
+                return True
+        elif root.right:
+            if two_node_sum(c, root.right):
+                return True
+        else:
+            return False
+
+
+    return False
 
 
 
