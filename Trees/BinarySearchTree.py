@@ -179,6 +179,23 @@ class BST:
             else:
                 self.find_successor_helper(current.left, value)
 
+    def find_closest_element(self, k):
+        r = self.root
+        return self.find_closest_element_helper(r, k)
+
+    def find_closest_element_helper(self, current, k):
+        if not current:
+            return 
+        if current.value == k:
+            return current.value
+        elif k < current.value:
+            find_closest_element_helper(current.left, k)
+        elif k > current.value:
+            find_closest_element_helper(current.right, k)
+
+        return
+
+
 
 
     def print_tree(self):
@@ -260,12 +277,6 @@ def two_node_sum(value, root): #not finished
 
 
     return False
-
-
-
-
-
-
 
 
 a = Node(8)
