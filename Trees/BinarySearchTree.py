@@ -185,14 +185,13 @@ class BST:
 
     def find_closest_element_helper(self, current, k):
         if not current:
-            return 
+            return
         if current.value == k:
             return current.value
         elif k < current.value:
             find_closest_element_helper(current.left, k)
         elif k > current.value:
             find_closest_element_helper(current.right, k)
-
         return
 
 
