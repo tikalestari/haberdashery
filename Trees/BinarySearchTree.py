@@ -238,10 +238,8 @@ def is_sum_tree(root):
         return True
     left_sum = sum_helper(root.left)
     right_sum = sum_helper(root.right)
-
     if root.value == left_sum + right_sum:
         return True
-
     return False
 
 def sum_helper(root):
