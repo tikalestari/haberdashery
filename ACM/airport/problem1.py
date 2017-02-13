@@ -1,8 +1,7 @@
 def function():
     t = int(input())
     for i in range(t):
-        n = input()
-        s = int(n[:-1])
+        s = int(input()n[:-1])
         print(s*6)
 
 

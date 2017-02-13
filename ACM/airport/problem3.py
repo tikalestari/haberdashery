@@ -8,7 +8,6 @@ def function():
             a, b = map(int, input().split())
             num += (a * b)
             hours += b
-
         print(int(round(num/hours)))
 
 
