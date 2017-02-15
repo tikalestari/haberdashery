@@ -1,3 +1,4 @@
+import math
 def function():
     t = int(input())
     for i in range(t):
@@ -8,7 +9,6 @@ def function():
         r_q = int(query[0:2], 16)
         g_q = int(query[2:4], 16)
         b_q = int(query[4:6], 16)
-        euc = 
         for j in range(n):
             color = input()
 
