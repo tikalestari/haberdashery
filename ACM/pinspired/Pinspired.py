@@ -5,7 +5,7 @@ def puns():
         count = 0
         sentence = input().lower().split()
         for word in sentence:
-            if word not in not_pun_words and "pin" in j:
+            if word not in not_pun_words and "pin" in word:
                 count += 1
         print(str(count))
 
