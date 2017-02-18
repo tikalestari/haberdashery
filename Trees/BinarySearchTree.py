@@ -194,7 +194,8 @@ class BST:
             find_closest_element_helper(current.right, k)
         return
 
-
+    def max_unique(self, node):
+        
 
 
     def print_tree(self):
