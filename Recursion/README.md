@@ -1,5 +1,5 @@
 # Recursion
-Problems on the Recursion topic.
+Problems on the topic of Recursion.
 
 ##Table of Contents
 - Problem  1: Divisible numbers by K
